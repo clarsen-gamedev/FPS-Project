@@ -23,6 +23,8 @@ public class WeaponSwap : MonoBehaviour
             {
                 weapon.gameObject.SetActive(true);  // Enable the selected weapon
                 temp = weapon.gameObject;           // Store the selected weapon in the temp variable
+
+                weapon.gameObject.GetComponent<GunSystem>().UpdateWeaponUI(weapon.gameObject.GetComponent<GunSystem>().gunName);    // Update the UI name
             }
             else
             {

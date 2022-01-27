@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GunSystem : MonoBehaviour
 {
-    // Public Variables
+    // Public and Serialized Variables
     [Header("Animation")]
     [SerializeField] Animator gunAnimator;
     [SerializeField] ParticleSystem muzzleFlash;
@@ -18,7 +18,7 @@ public class GunSystem : MonoBehaviour
     [SerializeField] Text ammoCounter;
     
     [Header("Gun Stats")]
-    [SerializeField] string gunName;
+    public string gunName;
     [SerializeField] int gunDamage;
     [SerializeField] float timeBetweenShooting;
     [SerializeField] float spread;
@@ -153,5 +153,11 @@ public class GunSystem : MonoBehaviour
     {
         bulletsLeft = magSize;  // Refill magazine
         isReloading = false;    // Player is finished reloading
+    }
+
+    // Call this function to switch the name of the equipped weapon
+    public void UpdateWeaponUI(string name)
+    {
+        equippedWeapon.text = name;
     }
 }
