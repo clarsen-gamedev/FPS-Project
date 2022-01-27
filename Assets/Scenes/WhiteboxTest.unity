@@ -14590,10 +14590,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle Rifle
       objectReference: {fileID: 0}
-    - target: {fileID: 2842310140956940018, guid: 2fb7642aeafc23a48859acc4e0a76a8f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2842310140956940019, guid: 2fb7642aeafc23a48859acc4e0a76a8f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14650,10 +14646,6 @@ PrefabInstance:
       propertyPath: equippedWeapon
       value: 
       objectReference: {fileID: 1930363540}
-    - target: {fileID: 2842310140956940020, guid: 2fb7642aeafc23a48859acc4e0a76a8f, type: 3}
-      propertyPath: allowTriggerHold
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2842310140956940020, guid: 2fb7642aeafc23a48859acc4e0a76a8f, type: 3}
       propertyPath: playerController
       value: 
