@@ -49,15 +49,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Swap Weapon",
-                    "type": "Button",
-                    "id": "5a22e783-95d7-4468-adf3-e93a13f05253",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -212,28 +203,6 @@
                     "processors": "",
                     "groups": "Xbox Controller",
                     "action": "Reload",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "92372c0b-c06c-4e39-9017-a132e9b5bd39",
-                    "path": "<XInputController>/buttonNorth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Xbox Controller",
-                    "action": "Swap Weapon",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "428beea8-793e-46af-b80d-c672f3515800",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Swap Weapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

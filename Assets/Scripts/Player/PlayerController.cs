@@ -134,27 +134,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Player Swap Weapon Controls
-    public void SwapWeapon(InputAction.CallbackContext context)
-    {
-        if (context.performed)  // Check to see if the button has been pressed
-        {
-            int selectedWeapon = weaponHandler.GetComponent<WeaponSwap>().selectedWeapon;   // Grab the selectedWeapon variable from weaponHandler
+    //// Player Swap Weapon Controls
+    //public void SwapWeapon(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed)  // Check to see if the button has been pressed
+    //    {
+    //        int selectedWeapon = weaponHandler.GetComponent<WeaponSwap>().selectedWeapon;   // Grab the selectedWeapon variable from weaponHandler
 
-            if (selectedWeapon >= weaponHandler.GetComponent<WeaponSwap>().transform.childCount - 1)    // Check to see if the index goes over number of weapons
-            {
-                selectedWeapon = 0; // Reset the index
-            }
-            else
-            {
-                selectedWeapon++;   // Increase the index
-            }
+    //        if (selectedWeapon >= weaponHandler.GetComponent<WeaponSwap>().transform.childCount - 1)    // Check to see if the index goes over number of weapons
+    //        {
+    //            selectedWeapon = 0; // Reset the index
+    //        }
+    //        else
+    //        {
+    //            selectedWeapon++;   // Increase the index
+    //        }
 
-            weaponHandler.GetComponent<WeaponSwap>().selectedWeapon = selectedWeapon;   // Return the index
+    //        weaponHandler.GetComponent<WeaponSwap>().selectedWeapon = selectedWeapon;   // Return the index
 
-            equippedWeapon = weaponHandler.GetComponent<WeaponSwap>().SelectWeapon();   // Swap the player's weapon
-        }
-    }
+    //        equippedWeapon = weaponHandler.GetComponent<WeaponSwap>().SelectWeapon();   // Swap the player's weapon
+    //    }
+    //}
 
     // Update the camera movement
     private void UpdateCamera()
