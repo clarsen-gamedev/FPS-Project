@@ -1,3 +1,7 @@
+// Name: WeaponSwap.cs
+// Author: Connor Larsen
+// Date: 02/01/2022
+
 using UnityEngine;
 
 public class WeaponSwap : MonoBehaviour

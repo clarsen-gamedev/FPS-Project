@@ -1,3 +1,7 @@
+// Name: PlayerController.cs
+// Author: Connor Larsen
+// Date: 02/01/2022
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
