@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    // Serialized Variables
+    #region Serialized Variables
     [Header("Camera Controls")]
     [SerializeField] Transform playerCamera = null;
     [SerializeField] Camera radarCamara = null;
@@ -28,8 +28,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Functional Options")]
     [SerializeField] bool lockCursor = true;
+    #endregion
 
-    // Private Variables
+    #region Private Variables
     CharacterController controller = null;
     GunSystem gunSystem = null;
     bool isShooting = false;
@@ -42,7 +43,9 @@ public class PlayerController : MonoBehaviour
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
     Quaternion radarRotation = Quaternion.identity;
+    #endregion
 
+    #region Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -189,4 +192,5 @@ public class PlayerController : MonoBehaviour
     {
         return isShooting;
     }
+    #endregion
 }

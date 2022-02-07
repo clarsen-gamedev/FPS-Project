@@ -6,14 +6,17 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Public Variables
+    #region Public Variables
     public static bool GamePaused = false;
     public GameObject gameUI;
     public GameObject pauseMenu;
+    #endregion
 
-    // Private Variables
+    #region Serialized Variables
     [SerializeField] KeyCode pauseButton = KeyCode.Escape;
+    #endregion
 
+    #region Functions
     // Update is called once per frame
     private void Update()
     {
@@ -65,4 +68,5 @@ public class PauseMenu : MonoBehaviour
     {
         return GamePaused;
     }
+    #endregion
 }

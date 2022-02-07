@@ -6,12 +6,15 @@ using UnityEngine;
 
 public class BillboardUI : MonoBehaviour
 {
-    // Serialized Variables
+    #region Serialized Variables
     [SerializeField] Transform cameraTransform; // Reference to the transform of the player camera
+    #endregion
 
-    // Private Variables
+    #region Private Variables
     Quaternion startRot;    // Starting rotation of the UI element
+    #endregion
 
+    #region Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -23,4 +26,5 @@ public class BillboardUI : MonoBehaviour
     {
         transform.rotation = cameraTransform.rotation * startRot;   // UI element faces the player
     }
+    #endregion
 }

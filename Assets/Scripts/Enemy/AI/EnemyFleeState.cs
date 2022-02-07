@@ -1,15 +1,11 @@
-// Name: EnemyStateMachine.cs
+// Name: EnemyFleeState.cs
 // Author: Connor Larsen
-// Date: 02/01/2022
+// Date: 02/07/2022
 
 using UnityEngine;
 
-public class EnemyStateMachine : MonoBehaviour
+public class EnemyFleeState : EnemyBaseState
 {
-    #region Private Variables
-    EnemyBaseState currentState;    // Stores the current state of the enemy
-    #endregion
-
     #region Functions
     // Start is called before the first frame update
     void Start()

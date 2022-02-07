@@ -7,13 +7,16 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Serialized Variables
+    #region Serialized Variables
     [SerializeField] Image healthBarImage;  // Reference to image used for enemy health UI
     [SerializeField] float maxHealth = 100; // Maximum amount of health the enemy can have
+    #endregion
 
-    // Private Variables
+    #region Private Variables
     float currentHealth;    // Stores the current health of the enemy
+    #endregion
 
+    #region Functions
     // Start is called before the first frame update
     private void Start()
     {
@@ -37,4 +40,5 @@ public class EnemyHealth : MonoBehaviour
     {
         Destroy(gameObject);    // Destroy the enemy game object
     }
+    #endregion
 }

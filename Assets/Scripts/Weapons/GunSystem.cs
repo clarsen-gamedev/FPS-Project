@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GunSystem : MonoBehaviour
 {
-    // Public and Serialized Variables
+    #region Public and Serialized Variables
     [Header("Animation")]
     [SerializeField] Animator gunAnimator;
     [SerializeField] ParticleSystem muzzleFlash;
@@ -35,14 +35,17 @@ public class GunSystem : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] Camera playerCamera;
     [SerializeField] AudioSource audioSource;
+    #endregion
 
-    // Private Variables
+    #region Private Variables
     bool isShooting;
     bool readyToShoot;
     bool isReloading;
     int bulletsLeft;
     int bulletsShot;
+    #endregion
 
+    #region Functions
     // Awake is called on script launch
     private void Awake()
     {
@@ -164,4 +167,5 @@ public class GunSystem : MonoBehaviour
     {
         equippedWeapon.text = name;
     }
+    #endregion
 }

@@ -6,13 +6,16 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    // Public Variables
+    #region Public Variables
     public float speed = 200f;
     public float bulletLife = 5.0f;
+    #endregion
 
-    // Private Variables
+    #region Private Variables
     Vector3 lastPosition;
+    #endregion
 
+    #region Functions
     // Update is called once per frame
     void Update()
     {
@@ -27,4 +30,5 @@ public class ProjectileController : MonoBehaviour
             Destroy(gameObject);    // Despawn the bullet
         }
     }
+    #endregion
 }

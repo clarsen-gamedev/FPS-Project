@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class WeaponSwap : MonoBehaviour
 {
-    // Public Variables
+    #region Public Variables
     public int selectedWeapon = 0;
+    #endregion
 
+    #region Functions
     // Start is called before the first frame update
     void Start()
     {
@@ -40,4 +42,5 @@ public class WeaponSwap : MonoBehaviour
 
         return temp;    // Return the selected weapon
     }
+    #endregion
 }
