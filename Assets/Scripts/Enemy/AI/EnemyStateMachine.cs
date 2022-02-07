@@ -6,10 +6,15 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    // Private Variables
-    GameObject[] pointList;     // Array of patrol points
-    Transform playerLocation;   // Location of the player character
-    Vector3 destPos;            // Next destination for the enemy
-    float shootRate;            // Rate of enemy shooting
-    float elapsedTime;          // 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
