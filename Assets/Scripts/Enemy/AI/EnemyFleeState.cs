@@ -7,14 +7,26 @@ using UnityEngine;
 public class EnemyFleeState : EnemyBaseState
 {
     #region Functions
-    // Start is called before the first frame update
-    void Start()
+    // Enter State Function
+    public override void EnterState(EnemyStateMachine enemy)
     {
-
+        Debug.Log("Enemy Entered 'Flee State'");    // DEBUG: Print out a debug message
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update State Function
+    public override void UpdateState(EnemyStateMachine enemy)
+    {
+        #region Transitions
+        // Enemy HP Above ~10%
+            // Enemy Loses Sight of Player ==> Idle State
+            // Enemy Sees Player ==> Attack State
+
+        // Enemy HP Depleted ==> Dead State
+        #endregion
+    }
+
+    // OnCollisionEnter Function
+    public override void OnCollisionEnter(EnemyStateMachine enemy)
     {
 
     }

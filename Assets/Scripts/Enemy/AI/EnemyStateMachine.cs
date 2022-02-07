@@ -6,21 +6,37 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
+    #region Public Variables
+    // All Possible States for the Enemy
+    public EnemyIdleState idleState = new EnemyIdleState();        // Idle State
+    public EnemyAttackState attackState = new EnemyAttackState();  // Attack State
+    public EnemyFleeState fleeState = new EnemyFleeState();        // Flee State
+    public EnemyDeadState deadState = new EnemyDeadState();        // Dead State
+    #endregion
+
     #region Private Variables
-    EnemyBaseState currentState;    // Stores the current state of the enemy
+    EnemyBaseState currentState;    // Stores reference to the active state of the enemy
     #endregion
 
     #region Functions
     // Start is called before the first frame update
     void Start()
     {
-
+        currentState = idleState;       // Initialize the starting state for the enemy (Idle)
+        currentState.EnterState(this);  // Run the "EnterState" function attached to the current state
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentState.UpdateState(this); // Run the "Update" function based on which state is currently active
+    }
 
+    // Switch State Function
+    public void SwitchState(EnemyBaseState state)
+    {
+        currentState = state;   // Switch to the new state
+        state.EnterState(this); // Run the "EnterState" function attached to the switched state
     }
     #endregion
 }
