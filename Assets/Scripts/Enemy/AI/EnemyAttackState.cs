@@ -10,7 +10,8 @@ public class EnemyAttackState : EnemyBaseState
     // Enter State Function
     public override void EnterState(EnemyStateMachine enemy)
     {
-        Debug.Log("Enemy Entered 'Attack State'");  // DEBUG: Print out a debug message
+        Debug.Log("Enemy Entered 'Attack State'");                  // DEBUG: Print out a debug message
+        enemy.GetComponent<Renderer>().material.color = Color.red;  // DEBUG: Make Idle enemies Red
     }
 
     // Update State Function
@@ -22,6 +23,10 @@ public class EnemyAttackState : EnemyBaseState
         // Enemy HP Reaches ~10% ==> Flee State
 
         // Enemy HP Depleted ==> Dead State
+        if (enemy.GetComponent<EnemyHealth>().GetEnemyHealth() <= 0)
+        {
+            enemy.SwitchState(enemy.deadState); // Switch to the dead state
+        }
         #endregion
     }
 

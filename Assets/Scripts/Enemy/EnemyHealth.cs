@@ -29,14 +29,20 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= damage;                                // Subtract incoming damage from enemy health
         healthBarImage.fillAmount = currentHealth / maxHealth;  // Calculate the percentage of fill amount for health UI
 
-        if (currentHealth <= 0f)    // Once the enemy is out of health
-        {
-            Die();  // Kill the enemy
-        }
+        //if (currentHealth <= 0f)    // Once the enemy is out of health
+        //{
+        //    Die();  // Kill the enemy
+        //}
+    }
+
+    // Grab the health value for use in other scripts
+    public float GetEnemyHealth()
+    {
+        return currentHealth;
     }
 
     // Kills the enemy this script is attached to
-    void Die()
+    public void Die()
     {
         Destroy(gameObject);    // Destroy the enemy game object
     }
