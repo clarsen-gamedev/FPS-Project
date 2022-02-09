@@ -8,6 +8,7 @@ TagManager:
   - UI_AmmoCount
   - Weapon
   - Enemy
+  - Waypoint
   layers:
   - Default
   - TransparentFX

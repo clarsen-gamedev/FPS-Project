@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1979527494637876254}
   - component: {fileID: 7461843983845905036}
   - component: {fileID: 4948653939205146758}
-  - component: {fileID: 4862283851438270588}
   - component: {fileID: 4144055221610581461}
-  - component: {fileID: 3012130135452274864}
+  - component: {fileID: 6361438164326504952}
   - component: {fileID: 3473873108889752288}
+  - component: {fileID: 4862283851438270588}
   m_Layer: 7
   m_Name: Test Enemy
   m_TagString: Enemy
@@ -86,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4862283851438270588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809289879131324556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40b63f5923c0db142ab744d396ca4659, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarImage: {fileID: 2121955347946404488}
-  maxHealth: 200
 --- !u!136 &4144055221610581461
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -114,7 +100,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3012130135452274864
+--- !u!54 &6361438164326504952
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +128,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478068dcd7424b349b73ed8b1e2f2372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  rigidbody: {fileID: 0}
+  moveSpeedIdle: 20
+  rotationSpeed: 100
+  isWandering: 0
+  isRotatingLeft: 0
+  isRotatingRight: 0
+  isWalking: 0
+--- !u!114 &4862283851438270588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809289879131324556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b63f5923c0db142ab744d396ca4659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarImage: {fileID: 2121955347946404488}
+  maxHealth: 200
 --- !u!1 &2862811832351724397
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,4 +414,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c47e245acacc3541a66bf0bb0e79ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 0}
