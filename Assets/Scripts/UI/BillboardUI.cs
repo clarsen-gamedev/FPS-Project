@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class BillboardUI : MonoBehaviour
 {
-    #region Serialized Variables
-    [SerializeField] Transform cameraTransform; // Reference to the transform of the player camera
+    #region Private Variables
+    Transform cameraTransform;  // Reference to the transform of the player camera
     #endregion
 
     #region Private Variables
@@ -18,7 +18,8 @@ public class BillboardUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startRot = transform.rotation;  // Set the start rotation on script startup
+        startRot = transform.rotation;                                                                      // Set the start rotation on script startup
+        cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform;  // Grab the transform of the player cam
     }
 
     // Update is called once per frame
