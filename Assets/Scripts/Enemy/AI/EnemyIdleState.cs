@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyBaseState
 {
+    #region Private Variables
+    GameObject[] patrolPoints;  // Array of enemy patrol points
+    int point;                  // Store the index of the next patrol point
+    bool isMoving;              // Keep track if enemy is walking or not
+    #endregion
+
     #region Functions
     // Enter State Function
     public override void EnterState(EnemyStateMachine enemy)
@@ -14,18 +20,23 @@ public class EnemyIdleState : EnemyBaseState
         Debug.Log("Enemy Entered 'Idle State'");                        // DEBUG: Print out a debug message
         enemy.GetComponent<Renderer>().material.color = Color.yellow;   // DEBUG: Make Idle enemies Yellow
 
-        // Reset bools
-        enemy.isWandering = false;
+        // Initialize State
+        patrolPoints = GameObject.FindGameObjectsWithTag("Waypoint");   // Grab all waypoints in the scene
+        point = Random.Range(0, patrolPoints.Length);                   // Pick a random patrol point
     }
 
     // Update State Function
     public override void UpdateState(EnemyStateMachine enemy)
     {
         #region State Behaviour
-        // If the enemy isn't currently wandering...
-        if (enemy.isWandering == false)
+        if (Vector3.Distance(enemy.transform.position, patrolPoints[point].transform.position) <= 1.0f) // If enemy has reached the target point...
         {
-            
+            point = Random.Range(0, patrolPoints.Length);   // Pick a random patrol point
+        }
+        
+        else
+        {
+            enemy.agent.destination = patrolPoints[point].transform.position;   // Move towards the target waypoint
         }
         #endregion
 

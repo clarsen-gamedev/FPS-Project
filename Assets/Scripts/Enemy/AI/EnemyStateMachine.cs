@@ -3,22 +3,13 @@
 // Date: 02/01/2022
 
 using UnityEngine;
-//using UnityEngine.AI;
+using UnityEngine.AI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
     #region Public Variables
     [Header("AI Movement")]
-    //public NavMeshAgent agent;        // Reference to the enemy nav mesh agent
-    public Rigidbody rigidbody;         // Reference to the enemy rigidbody
-    public float moveSpeedIdle = 20f;   // How fast the AI moves around while idle
-    public float rotationSpeed = 100f;  // How fast the AI rotates
-    
-    [Header("Bools")]
-    public bool isWandering = false;        // If the AI is wandering or not
-    public bool isRotatingLeft = false;     // If the AI is rotating to the left
-    public bool isRotatingRight = false;    // If the AI is rotating to the right
-    public bool isWalking = false;          // If the AI is currently walking
+    public NavMeshAgent agent;          // Reference to the enemy nav mesh agent
 
     // All Possible States for the Enemy
     public EnemyIdleState idleState = new EnemyIdleState();        // Idle State

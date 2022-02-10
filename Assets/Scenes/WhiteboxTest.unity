@@ -3826,10 +3826,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 809289879131324556, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1979527494637876254, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3840,7 +3836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1979527494637876254, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1979527494637876254, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3874,20 +3870,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4144055221610581461, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7477012295523599773, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
-      propertyPath: cameraTransform
-      value: 
-      objectReference: {fileID: 1793650715}
     - target: {fileID: 7654541152092910010, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1793650716}
-    m_RemovedComponents:
-    - {fileID: 2761834097758399488, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c5df49173908d4bbd66e713d7b2cb6, type: 3}
 --- !u!4 &492693198 stripped
 Transform:
@@ -8091,7 +8078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091315399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 2, z: -0.0194}
+  m_LocalPosition: {x: -5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 5, z: 23}
   m_Children: []
   m_Father: {fileID: 318777687}
