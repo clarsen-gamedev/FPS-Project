@@ -19,6 +19,10 @@ public class EnemyAttackState : EnemyBaseState
     {
         #region Transitions
         // Enemy Loses Sight of Player ==> Idle State
+        if (enemy.seePlayer == false)
+        {
+            enemy.SwitchState(enemy.idleState); // Switch to the idle state
+        }
 
         // Enemy HP Reaches ~10% ==> Flee State
 

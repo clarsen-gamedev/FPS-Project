@@ -23,19 +23,20 @@ public class EnemyIdleState : EnemyBaseState
         // Initialize State
         patrolPoints = GameObject.FindGameObjectsWithTag("Waypoint");   // Grab all waypoints in the scene
         point = Random.Range(0, patrolPoints.Length);                   // Pick a random patrol point
+        enemy.StartCoroutine(enemy.LookForPlayer());                    // Start looking for the player
     }
 
     // Update State Function
     public override void UpdateState(EnemyStateMachine enemy)
     {
         #region State Behaviour
-        if (Vector3.Distance(enemy.transform.position, patrolPoints[point].transform.position) <= 1.0f) // If enemy has reached the target point...
+        // If enemy has reached the target point...
+        if (Vector3.Distance(enemy.transform.position, patrolPoints[point].transform.position) <= 1.0f)
         {
-            Debug.Log("Enemy reached point " + point);
             point = Random.Range(0, patrolPoints.Length);   // Pick a random patrol point
-            Debug.Log("Enemy started moving to point " + point);
         }
         
+        // If enemy still hasn't reached their destination
         else
         {
             enemy.agent.destination = patrolPoints[point].transform.position;   // Move towards the target waypoint
@@ -44,6 +45,10 @@ public class EnemyIdleState : EnemyBaseState
 
         #region Transitions
         // Enemy Sees Player ==> Attack State
+        if (enemy.seePlayer == true)
+        {
+            enemy.SwitchState(enemy.attackState);   // Switch to the attack state
+        }
 
         // Enemy HP Reaches ~10% ==> Flee State
 

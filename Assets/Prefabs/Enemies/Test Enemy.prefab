@@ -113,6 +113,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 4616353757914677674}
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  seePlayer: 0
+  radius: 10
+  angle: 180
 --- !u!114 &4862283851438270588
 MonoBehaviour:
   m_ObjectHideFlags: 0
