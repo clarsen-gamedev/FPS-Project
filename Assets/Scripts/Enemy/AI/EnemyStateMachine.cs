@@ -38,7 +38,8 @@ public class EnemyStateMachine : MonoBehaviour
         currentState = idleState;                               // Initialize the starting state for the enemy (Idle)
         playerRef = GameObject.FindGameObjectWithTag("Player"); // Find the player and store the reference
 
-        currentState.EnterState(this);  // Run the "EnterState" function attached to the current state
+        StartCoroutine(LookForPlayer());    // Start looking for the player
+        currentState.EnterState(this);      // Run the "EnterState" function attached to the current state
     }
 
     // Update is called once per frame

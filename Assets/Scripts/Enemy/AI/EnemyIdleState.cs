@@ -23,7 +23,6 @@ public class EnemyIdleState : EnemyBaseState
         // Initialize State
         patrolPoints = GameObject.FindGameObjectsWithTag("Waypoint");   // Grab all waypoints in the scene
         point = Random.Range(0, patrolPoints.Length);                   // Pick a random patrol point
-        enemy.StartCoroutine(enemy.LookForPlayer());                    // Start looking for the player
     }
 
     // Update State Function
