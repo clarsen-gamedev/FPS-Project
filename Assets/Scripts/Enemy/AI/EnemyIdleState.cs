@@ -31,7 +31,9 @@ public class EnemyIdleState : EnemyBaseState
         #region State Behaviour
         if (Vector3.Distance(enemy.transform.position, patrolPoints[point].transform.position) <= 1.0f) // If enemy has reached the target point...
         {
+            Debug.Log("Enemy reached point " + point);
             point = Random.Range(0, patrolPoints.Length);   // Pick a random patrol point
+            Debug.Log("Enemy started moving to point " + point);
         }
         
         else
