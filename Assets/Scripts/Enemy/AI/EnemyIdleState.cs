@@ -62,11 +62,5 @@ public class EnemyIdleState : EnemyBaseState
         }
         #endregion
     }
-
-    // OnCollisionEnter Function
-    public override void OnCollisionEnter(EnemyStateMachine enemy)
-    {
-
-    }
     #endregion
 }

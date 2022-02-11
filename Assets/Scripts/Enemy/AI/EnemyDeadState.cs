@@ -19,11 +19,5 @@ public class EnemyDeadState : EnemyBaseState
     {
         // Dead; Do Nothing
     }
-
-    // OnCollisionEnter Function
-    public override void OnCollisionEnter(EnemyStateMachine enemy)
-    {
-        // Dead; Do Nothing
-    }
     #endregion
 }

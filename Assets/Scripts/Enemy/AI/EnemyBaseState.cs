@@ -9,6 +9,5 @@ public abstract class EnemyBaseState
     #region Functions
     public abstract void EnterState(EnemyStateMachine enemy);
     public abstract void UpdateState(EnemyStateMachine enemy);
-    public abstract void OnCollisionEnter(EnemyStateMachine enemy);
     #endregion
 }
