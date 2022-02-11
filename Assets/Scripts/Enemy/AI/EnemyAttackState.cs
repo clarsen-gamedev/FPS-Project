@@ -17,6 +17,11 @@ public class EnemyAttackState : EnemyBaseState
     // Update State Function
     public override void UpdateState(EnemyStateMachine enemy)
     {
+        #region State Behaviour
+        // If the enemy is not within 3 meters of the player...
+        enemy.agent.destination = enemy.playerRef.transform.position;   // Pursure the player
+        #endregion
+
         #region Transitions
         // Enemy Loses Sight of Player ==> Idle State
         if (enemy.seePlayer == false)
@@ -25,6 +30,10 @@ public class EnemyAttackState : EnemyBaseState
         }
 
         // Enemy HP Reaches ~10% ==> Flee State
+        if (enemy.health.GetEnemyHealth() <= (enemy.health.GetMaxHealth() / 10))
+        {
+            enemy.SwitchState(enemy.fleeState);
+        }
 
         // Enemy HP Depleted ==> Dead State
         if (enemy.GetComponent<EnemyHealth>().GetEnemyHealth() <= 0)

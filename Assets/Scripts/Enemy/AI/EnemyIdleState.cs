@@ -50,6 +50,10 @@ public class EnemyIdleState : EnemyBaseState
         }
 
         // Enemy HP Reaches ~10% ==> Flee State
+        if (enemy.health.GetEnemyHealth() <= (enemy.health.GetMaxHealth() / 10))
+        {
+            enemy.SwitchState(enemy.fleeState);
+        }
 
         // Dead State
         if (enemy.GetComponent<EnemyHealth>().GetEnemyHealth() <= 0)

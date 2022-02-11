@@ -20,6 +20,9 @@ public class EnemyStateMachine : MonoBehaviour
     public float radius;                            // Radius of the enemy's field of view
     [Range(0, 360)] public float angle;             // Angle of the enemy's field of view
 
+    [Header("AI Stats")]
+    [HideInInspector] public EnemyHealth health;  // Reference to the enemy health script
+
     // All Possible States for the Enemy
     public EnemyIdleState idleState = new EnemyIdleState();        // Idle State
     public EnemyAttackState attackState = new EnemyAttackState();  // Attack State
@@ -37,6 +40,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         currentState = idleState;                               // Initialize the starting state for the enemy (Idle)
         playerRef = GameObject.FindGameObjectWithTag("Player"); // Find the player and store the reference
+        health = GetComponent<EnemyHealth>();                   // Grab the health script off the enemy
 
         StartCoroutine(LookForPlayer());    // Start looking for the player
         currentState.EnterState(this);      // Run the "EnterState" function attached to the current state
