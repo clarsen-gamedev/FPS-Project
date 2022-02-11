@@ -114,16 +114,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 4616353757914677674}
+  patrolRange: 8
+  minWaitTIme: 2
+  maxWaitTime: 5
+  timeBetweenAttacks: 2
+  alreadyAttacked: 0
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
     m_Bits: 256
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 1024
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
   seePlayer: 0
   radius: 30
   angle: 90
+  health: {fileID: 0}
 --- !u!114 &4862283851438270588
 MonoBehaviour:
   m_ObjectHideFlags: 0

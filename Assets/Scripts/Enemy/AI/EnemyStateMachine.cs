@@ -10,11 +10,19 @@ public class EnemyStateMachine : MonoBehaviour
 {
     #region Public Variables
     [Header("AI Movement")]
-    public NavMeshAgent agent;      // Reference to the enemy nav mesh agent
+    public NavMeshAgent agent;                      // Reference to the enemy nav mesh agent
+    public float patrolRange;                       // Maximum distance enemy can move from current spot when patrolling
+    public float minWaitTIme;                       // Shortest time enemy will wait before moving to new patrol point
+    public float maxWaitTime;                       // Longest time enemy will wait before moving to new patrol point
+
+    [Header("AI Attack")]
+    public float timeBetweenAttacks;                // Time is seconds between enemy attacks
+    [HideInInspector] public bool alreadyAttacked;  // True if enemy attacks
 
     [Header("AI Field of View")]
     [HideInInspector] public GameObject playerRef;  // Reference to the player character in the scene
     public LayerMask targetMask;                    // Reference to the layer mask of the target
+    public LayerMask floorMask;                     // Reference to the layer mask of the walkable floor
     public LayerMask obstacleMask;                  // Reference to the layer mask of obstructions to the FOV
     [HideInInspector] public bool seePlayer;        // Enemy can see the player
     public float radius;                            // Radius of the enemy's field of view
