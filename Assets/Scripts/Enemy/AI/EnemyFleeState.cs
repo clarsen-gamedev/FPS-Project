@@ -18,9 +18,21 @@ public class EnemyFleeState : EnemyBaseState
     public override void UpdateState(EnemyStateMachine enemy)
     {
         #region Transitions
-        // Enemy HP Above ~10%
+        // Enemy HP Above ~25%
+        if (enemy.health.GetEnemyHealth() > (enemy.health.GetMaxHealth() / 4))
+        {
             // Enemy Loses Sight of Player ==> Idle State
+            if (enemy.seePlayer == false)
+            {
+                enemy.SwitchState(enemy.idleState); // Switch to the idle state
+            }
+
             // Enemy Sees Player ==> Attack State
+            if (enemy.seePlayer == true)
+            {
+                enemy.SwitchState(enemy.attackState);   // Switch to the attack state
+            }
+        }
 
         // Enemy HP Depleted ==> Dead State
         if (enemy.GetComponent<EnemyHealth>().GetEnemyHealth() <= 0)

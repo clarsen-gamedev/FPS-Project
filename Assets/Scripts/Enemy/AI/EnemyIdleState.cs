@@ -49,8 +49,8 @@ public class EnemyIdleState : EnemyBaseState
             enemy.SwitchState(enemy.attackState);   // Switch to the attack state
         }
 
-        // Enemy HP Reaches ~10% ==> Flee State
-        if (enemy.health.GetEnemyHealth() <= (enemy.health.GetMaxHealth() / 10))
+        // Enemy HP Reaches ~25% ==> Flee State
+        if (enemy.health.GetEnemyHealth() <= (enemy.health.GetMaxHealth() / 4))
         {
             enemy.SwitchState(enemy.fleeState);
         }
