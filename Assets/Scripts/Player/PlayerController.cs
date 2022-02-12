@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
 
     #region Private Variables
     CharacterController controller = null;
-    GunSystem gunSystem = null;
+    WeaponManager weaponManager = null;
+    //GunSystem gunSystem = null;
     bool isShooting = false;
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
@@ -50,7 +51,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();       // Grabs the character controller from the player
-        gunSystem = equippedWeapon.GetComponent<GunSystem>();   // Grabs the gun system from the equipped weapon
+        //gunSystem = equippedWeapon.GetComponent<GunSystem>();   // Grabs the gun system from the equipped weapon
+        weaponManager = GetComponent<WeaponManager>();          // Grabs the weapon manager from the player
         radarRotation = radarCamara.transform.rotation;         // Store the initial rotation of the radar camera
 
         if (lockCursor) // Check to see if cursor is locked
@@ -112,24 +114,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Player Interact Controls
+    public void Interact(InputAction.CallbackContext context)
+    {
+        // If the button has been pressed...
+        if (context.performed)
+        {
+
+        }
+    }
+
     // Player Shoot Controls
     public void Shoot(InputAction.CallbackContext context)
     {
-        // Full Auto Weapon
-        if (gunSystem.allowTriggerHold == true)
-        {
-            isShooting = context.performed;
-        }
-
-        // Semi Auto Weapon
-        else if (gunSystem.allowTriggerHold == false)
-        {
-            isShooting = context.started;
-            if (context.performed)
-            {
-                isShooting = false;
-            }
-        }
+        //// Full Auto Weapon
+        //if (gunSystem.allowTriggerHold == true)
+        //{
+        //    isShooting = context.performed;
+        //}
     }
 
     // Player Reload Controls
@@ -137,31 +139,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)  // Check to see if the button has been pressed
         {
-            gunSystem.Reload(); // Reload the gun
+            //gunSystem.Reload(); // Reload the gun
         }
     }
-
-    //// Player Swap Weapon Controls
-    //public void SwapWeapon(InputAction.CallbackContext context)
-    //{
-    //    if (context.performed)  // Check to see if the button has been pressed
-    //    {
-    //        int selectedWeapon = weaponHandler.GetComponent<WeaponSwap>().selectedWeapon;   // Grab the selectedWeapon variable from weaponHandler
-
-    //        if (selectedWeapon >= weaponHandler.GetComponent<WeaponSwap>().transform.childCount - 1)    // Check to see if the index goes over number of weapons
-    //        {
-    //            selectedWeapon = 0; // Reset the index
-    //        }
-    //        else
-    //        {
-    //            selectedWeapon++;   // Increase the index
-    //        }
-
-    //        weaponHandler.GetComponent<WeaponSwap>().selectedWeapon = selectedWeapon;   // Return the index
-
-    //        equippedWeapon = weaponHandler.GetComponent<WeaponSwap>().SelectWeapon();   // Swap the player's weapon
-    //    }
-    //}
 
     // Update the camera movement
     private void UpdateCamera()

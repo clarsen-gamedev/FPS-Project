@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6547611468985783423}
   - component: {fileID: 6547611468985783422}
   - component: {fileID: 6547611468985783421}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2974016477608135604}
   - component: {fileID: 608254498281232307}
   - component: {fileID: 3567228746682897489}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5063,8 +5063,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6547611470150222319}
-  - component: {fileID: 5285478731696325723}
-  m_Layer: 8
+  - component: {fileID: 4128028874943176503}
+  m_Layer: 11
   m_Name: Assault Rifle (new)
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -5078,7 +5078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6547611470150222318}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3, y: -0.29999995, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5087,22 +5087,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &5285478731696325723
-Animator:
-  serializedVersion: 3
+--- !u!114 &4128028874943176503
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6547611470150222318}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e022ecf31d1463e4db42430ded77156a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e596bd0c3134140819d157246e31ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6547611468985783363}
+  weaponColliders:
+  - {fileID: 6547611468985783421}
+  throwForce: 5
+  throwExtraForce: 11
+  rotationForce: 120
