@@ -2,6 +2,8 @@
 // Author: Connor Larsen
 // Date: 02/12/2022
 
+// https://www.youtube.com/watch?v=QUgQe1K9fH0 Pickup at 28:30
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
