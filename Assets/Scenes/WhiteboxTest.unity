@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13123885}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3, y: -0.3, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 480460088}
@@ -4195,8 +4195,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 480460088}
+  - component: {fileID: 480460089}
   m_Layer: 8
-  m_Name: WeaponHandler
+  m_Name: WeaponManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4218,6 +4219,25 @@ Transform:
   m_Father: {fileID: 1793650715}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480460089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480460087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba67c1bd5072914eaeb554eebd29f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 13123886}
+  playerCam: {fileID: 1793650715}
+  weaponLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  pickupRange: 3
+  pickupRadius: 0.5
 --- !u!1001 &492693197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7364,7 +7384,6 @@ GameObject:
   - component: {fileID: 934877845}
   - component: {fileID: 934877847}
   - component: {fileID: 934877844}
-  - component: {fileID: 934877848}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -7537,7 +7556,7 @@ MonoBehaviour:
     m_ActionName: Player/Reload[/Keyboard/r,/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934877848}
+      - m_Target: {fileID: 480460089}
         m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: Drop
         m_Mode: 0
@@ -7553,7 +7572,7 @@ MonoBehaviour:
     m_ActionName: Player/Drop[/Keyboard/z,/XInputControllerWindows/dpad/down]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934877848}
+      - m_Target: {fileID: 480460089}
         m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: Pickup
         m_Mode: 0
@@ -7572,25 +7591,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1793650716}
---- !u!114 &934877848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 934877843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba67c1bd5072914eaeb554eebd29f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponHolder: {fileID: 13123886}
-  playerCam: {fileID: 1793650715}
-  weaponLayer:
-    serializedVersion: 2
-    m_Bits: 2048
-  pickupRange: 5
-  pickupRadius: 1
 --- !u!1 &941442272
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,31 +8496,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.0407379
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.19
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.490028
+      value: -6.64
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15937,6 +15937,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 480460088}
     m_Modifications:
+    - target: {fileID: 700226738, guid: 0b952744d19c17f4f983213080479062, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1406252384363682049, guid: 0b952744d19c17f4f983213080479062, type: 3}
       propertyPath: ammoCounter
       value: 

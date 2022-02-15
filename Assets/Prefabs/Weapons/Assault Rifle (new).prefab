@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6547611468985783420}
   - component: {fileID: 6547611468985783423}
   - component: {fileID: 6547611468985783422}
-  - component: {fileID: 6547611468985783421}
+  - component: {fileID: 7044066084650920119}
   m_Layer: 11
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6547611468985783421
+--- !u!65 &7044066084650920119
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3567228746682897489}
   m_Layer: 11
   m_Name: AttackPoint
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5099,9 +5099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e596bd0c3134140819d157246e31ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 6547611468985783363}
+  weaponPrefab: {fileID: 6547611470150222318}
   weaponColliders:
-  - {fileID: 6547611468985783421}
+  - {fileID: 7044066084650920119}
   throwForce: 5
-  throwExtraForce: 11
+  throwExtraForce: 5
   rotationForce: 120
