@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6547611468985783423}
   - component: {fileID: 6547611468985783422}
   - component: {fileID: 7044066084650920119}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2974016477608135604}
   - component: {fileID: 608254498281232307}
   - component: {fileID: 3567228746682897489}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -5099,7 +5099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e596bd0c3134140819d157246e31ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 6547611470150222318}
+  weaponPrefab:
+  - {fileID: 6547611468985783363}
+  - {fileID: 6547611469657134115}
   weaponColliders:
   - {fileID: 7044066084650920119}
   throwForce: 5

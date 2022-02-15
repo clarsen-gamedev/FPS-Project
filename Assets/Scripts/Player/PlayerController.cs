@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     #region Serialized Variables
     [Header("Camera Controls")]
-    [SerializeField] Transform playerCamera = null;
+    [SerializeField] Transform cameraHolder = null;
     [SerializeField] Camera radarCamara = null;
     [SerializeField] float lookSpeed = 3.5f;
     [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
         cameraPitch -= currentCameraDelta.y * lookSpeed;                // Pitch camera on the Y axis
         cameraPitch = Mathf.Clamp(cameraPitch, -90.0f, 90.0f);          // Stop camera from rotating past -90 and 90 degrees
-        playerCamera.localEulerAngles = Vector3.right * cameraPitch;    // Rotate camera around right pitch
+        cameraHolder.localEulerAngles = Vector3.right * cameraPitch;    // Rotate camera around right pitch
         transform.Rotate(Vector3.up, currentCameraDelta.x * lookSpeed); // Rotate the player on the X axis
 
         radarCamara.transform.rotation = radarRotation;                 // Reset rotation of the radar

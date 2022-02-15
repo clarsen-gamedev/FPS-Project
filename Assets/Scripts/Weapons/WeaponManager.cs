@@ -13,7 +13,6 @@ public class WeaponManager : MonoBehaviour
     #region Serialized Variables
     [SerializeField] Transform weaponHolder;    // Reference to the position of the weapon holder
     [SerializeField] Transform playerCam;       // Reference to the position of the player camera
-    [SerializeField] LayerMask weaponLayer;     // Reference to the layer number of weapon pickups
     [SerializeField] float pickupRange;         // Range weapons can be picked up from
     [SerializeField] float pickupRadius;        // Radius weapons can be picked up from
     #endregion
@@ -21,14 +20,14 @@ public class WeaponManager : MonoBehaviour
     #region Private Variables
     Weapon heldWeapon;      // Reference to the currently held weapon
     bool weaponIsHeld;      // If weapon is held
-    int weaponLayerValue;   // Int value of the weapon layer
+    int weaponLayer;   // Int value of the weapon layer
     #endregion
 
     #region Functions
     // Awake runs on script initalization
     private void Awake()
     {
-        weaponLayerValue = LayerMask.NameToLayer("Weapon"); // Grab the layer value of the weapon layer
+        weaponLayer = LayerMask.NameToLayer("Weapon"); // Grab the layer value of the weapon layer
     }
 
     // Pickup a weapon
@@ -46,7 +45,7 @@ public class WeaponManager : MonoBehaviour
                 var hit = hitList[i];   // Store reference to current hit
 
                 // If the current hit is not part of the weapon layer...
-                if (hit.transform.gameObject.layer != weaponLayerValue)
+                if (hit.transform.gameObject.layer != weaponLayer)
                 {
                     continue;   // Do nothing
                 }
