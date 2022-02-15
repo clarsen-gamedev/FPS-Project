@@ -7,11 +7,22 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Serialized Variables
-    [SerializeField] GameObject[] weaponPrefab;
-    [SerializeField] Collider[] weaponColliders;
-    [SerializeField] float throwForce;
-    [SerializeField] float throwExtraForce;
-    [SerializeField] float rotationForce;
+    [Header("Functional Variables")]
+    [SerializeField] GameObject[] weaponPrefab;     // Place all child game objects of the weapon here
+    [SerializeField] Collider[] weaponColliders;    // Place all colliders on the weapon here
+
+    [Header("Weapon Stats")]
+    [SerializeField] string weaponName; // Name of the weapon
+    [SerializeField] int maxAmmo;       // Maximum amount of ammo weapon can have in a single clip
+    [SerializeField] int fireRate;      // Fire rate of the weapon (shots per second)
+    [SerializeField] float reloadSpeed; // How fast in seconds the gun takes to reload
+    [SerializeField] float hitForce;    // Force applied to any rigidbody hit by the weapon
+    [SerializeField] float range;       // How far the gun can shoot
+
+    [Header("Physics")]
+    [SerializeField] float throwForce;      // Force applied to weapon when thrown
+    [SerializeField] float throwExtraForce; // Extra force applied to the weapon when thrown
+    [SerializeField] float rotationForce;   // Rotational force applied to the weapon when thrown
     #endregion
 
     #region Private Variables
