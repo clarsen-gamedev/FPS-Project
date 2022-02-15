@@ -7521,8 +7521,8 @@ MonoBehaviour:
     m_ActionName: Player/Camera[/Mouse/position]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934877844}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 480460089}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: Shoot
         m_Mode: 0
         m_Arguments:

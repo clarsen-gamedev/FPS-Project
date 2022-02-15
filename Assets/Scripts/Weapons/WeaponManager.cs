@@ -2,7 +2,7 @@
 // Author: Connor Larsen
 // Date: 02/12/2022
 
-// https://www.youtube.com/watch?v=QUgQe1K9fH0 Pickup at 28:30
+// https://www.youtube.com/watch?v=QUgQe1K9fH0 Pickup at 43:20
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +28,26 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
         weaponLayer = LayerMask.NameToLayer("Weapon"); // Grab the layer value of the weapon layer
+    }
+
+    // Shoot a weapon
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        // If the button has been pressed and weapon is being held...
+        if (context.performed && heldWeapon.isHeld == true)
+        {
+            heldWeapon.ShootWeapon();   // Shoot the weapon
+        }
+    }
+
+    // Reload a weapon
+    public void Reload(InputAction.CallbackContext context)
+    {
+        // If the button has been pressed, weapon isn't currently reloading and ammo is less than max...
+        if (context.performed && heldWeapon.isReloading == false && heldWeapon.currentAmmo < heldWeapon.maxAmmo)
+        {
+            heldWeapon.ReloadWeapon();  // Reload the weapon
+        }
     }
 
     // Pickup a weapon
@@ -78,7 +98,7 @@ public class WeaponManager : MonoBehaviour
 
                 weaponIsHeld = true;                                        // Weapon is held
                 heldWeapon = realList[0].transform.GetComponent<Weapon>();  // Grab reference to weapon that was picked up
-                heldWeapon.PickupWeapon(weaponHolder);                      // Call the pickup function on the weapon
+                heldWeapon.PickupWeapon(weaponHolder, playerCam);           // Call the pickup function on the weapon
             }
         }
     }

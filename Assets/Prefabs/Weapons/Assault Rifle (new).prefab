@@ -5104,6 +5104,18 @@ MonoBehaviour:
   - {fileID: 6547611469657134115}
   weaponColliders:
   - {fileID: 7044066084650920119}
+  weaponName: Assault Rifle
+  semiAuto: 0
+  maxAmmo: 36
+  gunDamage: 10
+  fireRate: 20
+  reloadSpeed: 1
+  hitForce: 3.5
+  range: 20
   throwForce: 5
   throwExtraForce: 5
   rotationForce: 120
+  isHeld: 0
+  isReloading: 0
+  isShooting: 0
+  currentAmmo: 0
