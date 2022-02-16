@@ -5107,11 +5107,12 @@ MonoBehaviour:
   weaponName: Assault Rifle
   semiAuto: 0
   maxAmmo: 36
-  gunDamage: 10
+  gunDamage: 20
   fireRate: 20
   reloadSpeed: 1
-  hitForce: 3.5
   range: 20
+  shotSpread: 0.03
+  shotCooldown: 0.1
   throwForce: 5
   throwExtraForce: 5
   rotationForce: 120

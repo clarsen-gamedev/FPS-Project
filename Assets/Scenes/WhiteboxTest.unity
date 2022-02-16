@@ -7200,6 +7200,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1406252384363682055, guid: 0b952744d19c17f4f983213080479062, type: 3}
   m_PrefabInstance: {fileID: 1437420107266672421}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &926527587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1406252384363682049, guid: 0b952744d19c17f4f983213080479062, type: 3}
+  m_PrefabInstance: {fileID: 1437420107266672421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926527585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7459e7901f424134d957d9a4f0011975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &933507180
 GameObject:
   m_ObjectHideFlags: 0
@@ -7406,6 +7417,7 @@ MonoBehaviour:
   mouseSmoothTime: 0.03
   walkSpeed: 8
   moveSmoothTime: 0.15
+  gunSystem: {fileID: 926527587}
   weaponHandler: {fileID: 480460087}
   equippedWeapon: {fileID: 926527585}
   jumpForce: 8
@@ -7537,8 +7549,8 @@ MonoBehaviour:
     m_ActionName: Player/Shoot[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 934877844}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 480460089}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
         m_MethodName: Reload
         m_Mode: 0
         m_Arguments:
@@ -8515,6 +8527,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4128028874943176503, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222318, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_Name
       value: Assault Rifle (new)

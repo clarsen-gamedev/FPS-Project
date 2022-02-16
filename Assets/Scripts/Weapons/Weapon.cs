@@ -13,14 +13,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] Collider[] weaponColliders;    // Place all colliders on the weapon here
 
     [Header("Weapon Stats")]
-    [SerializeField] string weaponName;     // Name of the weapon
-    [SerializeField] public bool semiAuto;  // Determines if weapon is semi auto or full auto
-    [SerializeField] public int maxAmmo;    // Maximum amount of ammo weapon can have in a single clip
+    public string weaponName;               // Name of the weapon
+    public bool semiAuto;                   // Determines if weapon is semi auto or full auto
+    public int maxAmmo;                     // Maximum amount of ammo weapon can have in a single clip
     [SerializeField] int gunDamage;         // How much damage the weapon deals
     [SerializeField] int fireRate;          // Fire rate of the weapon (shots per second)
     [SerializeField] float reloadSpeed;     // How fast in seconds the gun takes to reload
-    [SerializeField] float hitForce;        // Force applied to any rigidbody hit by the weapon
     [SerializeField] float range;           // How far the gun can shoot
+    [SerializeField] float shotSpread;      // Spread of the bullets shot
+    [SerializeField] float shotCooldown;    // Cooldown between shots (only for full auto weapons)
 
     [Header("Physics")]
     [SerializeField] float throwForce;      // Force applied to weapon when thrown
@@ -55,35 +56,51 @@ public class Weapon : MonoBehaviour
     // Shoot the weapon
     public void ShootWeapon()
     {
-        // If weapon is semi auto, not shooting and not reloading...
-        if (semiAuto == true && isShooting == false && isReloading == false)
+        // If weapon is not shooting and not reloading...
+        if (isShooting == false && isReloading == false)
         {
-            // If no object is hit by the raycast...
-            if (!Physics.Raycast(playerCamera.position, playerCamera.forward, out var hitInfo, range))
+            // Shot Spread
+            float spreadX = Random.Range(-shotSpread, shotSpread);
+            float spreadY = Random.Range(-shotSpread, shotSpread);
+
+            // Calculate Direction with Spread
+            Vector3 direction = playerCamera.forward + new Vector3(spreadX, spreadY, 0f);
+
+            // Raycast
+            RaycastHit hit; // Initialize a raycast
+            if (Physics.Raycast(playerCamera.position, direction, out hit)) // Shoot a raycast
             {
-                return; // Do nothing
+                var health = hit.transform.GetComponent<EnemyHealth>(); // Grab the enemy health script off the object hit
+
+                // If the object hit has an enemy health script...
+                if (health != null)
+                {
+                    health.TakeDamage(gunDamage);   // Apply damage to enemy
+                }
             }
 
-            var rb = hitInfo.transform.GetComponent<Rigidbody>();       // Grab the rigidbody off the hit object
-            var health = hitInfo.transform.GetComponent<EnemyHealth>(); // Grab the health off the hit object
+            // Shooting Audio
 
-            // If hit object has neither rigidbody or health...
-            if (rb == null && health == null)
+            currentAmmo--;                          // Decrease ammo count
+            Invoke("ShootingCooldown", fireRate);   // Wait for cooldown before shooting again
+
+            // If weapon is full auto and have bullets left...
+            if (!semiAuto && currentAmmo > 0)
             {
-                return; // Do nothing
+                Invoke("ShootWeapon", shotCooldown);    // Shoot again after shot cooldown
             }
-
-            rb.velocity += playerCamera.forward * hitForce; // Apply force to hit object
-            health.TakeDamage(gunDamage);                   // Apply damage to hit enemy
-
-            StartCoroutine(currentAmmo <= 0 ? ReloadCooldown() : ShootingCooldown());   // Reload if out of ammo, otherwise shooting cooldown
         }
     }
 
     // Reload the weapon
     public void ReloadWeapon()
     {
-        StartCoroutine(ReloadCooldown());   // Reload the weapon
+        // Reload Audio
+
+        // Reload Functionality
+        isReloading = true;                     // Currently reloading
+        //gunAnimator.SetTrigger("Reload");       // Play the reload animation
+        Invoke("ReloadFinished", reloadSpeed);  // DEBUG: Wait for reload to finish
     }
 
     // Pickup the weapon
@@ -150,20 +167,16 @@ public class Weapon : MonoBehaviour
     }
 
     // Cooldown between shots
-    private IEnumerator ShootingCooldown()
+    private void ShootingCooldown()
     {
-        isShooting = true;                              // Currently shooting
-        yield return new WaitForSeconds(1f / fireRate); // Limit shots by firerate
         isShooting = false;                             // Done shooting
     }
 
-    // Cooldown for reloading weapon
-    private IEnumerator ReloadCooldown()
+    // Call function at the end of reload animation
+    private void ReloadFinished()
     {
-        isReloading = true;                             // Currently reloading
-        yield return new WaitForSeconds(reloadSpeed);   // Wait for reload to complete
-        currentAmmo = maxAmmo;                          // Reset ammo
-        isReloading = false;                            // Done reloading
+        currentAmmo = maxAmmo;  // Refill magazine
+        isReloading = false;    // Player is done reloading
     }
     #endregion
 }

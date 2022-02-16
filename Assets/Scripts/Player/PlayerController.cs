@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
 
     [Header("Weapon Controls")]
+    [SerializeField] GunSystem gunSystem;
     [SerializeField] GameObject weaponHandler;
     [SerializeField] GameObject equippedWeapon;
 
@@ -127,11 +128,11 @@ public class PlayerController : MonoBehaviour
     // Player Shoot Controls
     public void Shoot(InputAction.CallbackContext context)
     {
-        //// Full Auto Weapon
-        //if (gunSystem.allowTriggerHold == true)
-        //{
-        //    isShooting = context.performed;
-        //}
+        // Full Auto Weapon
+        if (gunSystem.allowTriggerHold == true)
+        {
+            isShooting = context.performed;
+        }
     }
 
     // Player Reload Controls

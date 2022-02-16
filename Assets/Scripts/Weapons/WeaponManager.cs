@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class WeaponManager : MonoBehaviour
@@ -18,9 +19,11 @@ public class WeaponManager : MonoBehaviour
     #endregion
 
     #region Private Variables
-    Weapon heldWeapon;      // Reference to the currently held weapon
-    bool weaponIsHeld;      // If weapon is held
-    int weaponLayer;   // Int value of the weapon layer
+    Text weaponNameUI;  // Reference to the UI element which displays the weapon name
+    Text ammoCountUI;   // Reference to the UI element which displays the ammo count
+    Weapon heldWeapon;  // Reference to the currently held weapon
+    bool weaponIsHeld;  // If weapon is held
+    int weaponLayer;    // Int value of the weapon layer
     #endregion
 
     #region Functions
@@ -28,6 +31,22 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
         weaponLayer = LayerMask.NameToLayer("Weapon"); // Grab the layer value of the weapon layer
+
+        weaponNameUI = GameObject.FindGameObjectWithTag("UI_WeaponName").GetComponent<Text>();  // Grab the "weapon name" UI element
+        ammoCountUI = GameObject.FindGameObjectWithTag("UI_AmmoCount").GetComponent<Text>();    // Grab the "ammo count" UI element
+
+        weaponNameUI.text = ""; // Initialize name display
+        ammoCountUI.text = "";  // Initialize ammo count display
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        // If a weapon is currently being held...
+        if (weaponIsHeld)
+        {
+            ammoCountUI.text = heldWeapon.currentAmmo + "/" + heldWeapon.maxAmmo;
+        }
     }
 
     // Shoot a weapon
@@ -36,7 +55,7 @@ public class WeaponManager : MonoBehaviour
         // If the button has been pressed and weapon is being held...
         if (context.performed && heldWeapon.isHeld == true)
         {
-            heldWeapon.ShootWeapon();   // Shoot the weapon
+            heldWeapon.ShootWeapon();    // Shoot the weapon
         }
     }
 
@@ -99,6 +118,7 @@ public class WeaponManager : MonoBehaviour
                 weaponIsHeld = true;                                        // Weapon is held
                 heldWeapon = realList[0].transform.GetComponent<Weapon>();  // Grab reference to weapon that was picked up
                 heldWeapon.PickupWeapon(weaponHolder, playerCam);           // Call the pickup function on the weapon
+                weaponNameUI.text = heldWeapon.weaponName;                  // Display the name of the equipped weapon
             }
         }
     }
@@ -112,6 +132,8 @@ public class WeaponManager : MonoBehaviour
             heldWeapon.DropWeapon(playerCam);   // Drop the weapon
             heldWeapon = null;                  // Remove reference to dropped weapon
             weaponIsHeld = false;               // No weapon being held
+            weaponNameUI.text = "";             // Reset the UI
+            ammoCountUI.text = "";              // Reset the UI
         }
     }
 
