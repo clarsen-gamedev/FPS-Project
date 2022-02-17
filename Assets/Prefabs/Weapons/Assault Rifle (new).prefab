@@ -5108,7 +5108,7 @@ MonoBehaviour:
   semiAuto: 0
   maxAmmo: 36
   gunDamage: 20
-  fireRate: 20
+  fireRate: 1
   reloadSpeed: 1
   range: 20
   shotSpread: 0.03

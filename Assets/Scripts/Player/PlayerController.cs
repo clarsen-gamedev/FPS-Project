@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)  // Check to see if the button has been pressed
         {
-            //gunSystem.Reload(); // Reload the gun
+            gunSystem.Reload(); // Reload the gun
         }
     }
 

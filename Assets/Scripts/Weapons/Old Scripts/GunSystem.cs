@@ -129,6 +129,8 @@ public class GunSystem : MonoBehaviour
         bulletsShot--;                              // Count how many bullets have been shot
         Invoke("ResetShot", timeBetweenShooting);   // Allows gun to be shot again after cooldown
 
+        if (!allowTriggerHold) return;
+
         if (bulletsShot > 0 && bulletsLeft > 0) // If the player still has bullets...
         {
             Invoke("Shoot", timeBetweenShots);  // Shoot the gun after timeBetweenShots is up

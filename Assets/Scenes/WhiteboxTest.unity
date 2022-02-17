@@ -8528,12 +8528,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4128028874943176503, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
-      propertyPath: fireRate
+      propertyPath: semiAuto
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222318, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_Name
       value: Assault Rifle (new)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547611470150222318, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_RootOrder

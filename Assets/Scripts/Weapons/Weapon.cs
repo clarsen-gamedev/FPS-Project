@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public bool isHeld;       // If the weapon is being held or not
     [HideInInspector] public bool isReloading;  // If the weapon is being reloaded or not
     [HideInInspector] public bool isShooting;   // If the weapon is being shot or not
+    [HideInInspector] public bool triggerHeld;  // If trigger is being held down (only for full auto weapons)
     [HideInInspector] public int currentAmmo;   // Store how much ammo is left in current magazine
     #endregion
 
@@ -84,8 +85,10 @@ public class Weapon : MonoBehaviour
             currentAmmo--;                          // Decrease ammo count
             Invoke("ShootingCooldown", fireRate);   // Wait for cooldown before shooting again
 
-            // If weapon is full auto and have bullets left...
-            if (!semiAuto && currentAmmo > 0)
+            if (semiAuto) return;   // Exit function if semi auto
+
+            // If weapon is full auto, have bullets left and trigger is still held...
+            if (currentAmmo > 0)
             {
                 Invoke("ShootWeapon", shotCooldown);    // Shoot again after shot cooldown
             }

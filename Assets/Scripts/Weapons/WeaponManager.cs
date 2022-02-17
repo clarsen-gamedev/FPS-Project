@@ -53,8 +53,12 @@ public class WeaponManager : MonoBehaviour
     public void Shoot(InputAction.CallbackContext context)
     {
         // If the button has been pressed and weapon is being held...
-        if (context.performed && heldWeapon.isHeld == true)
+        if (heldWeapon != null && heldWeapon.isHeld == true)
         {
+            // Control if trigger is being held or not
+            if (context.performed) heldWeapon.triggerHeld = true;
+            else if (context.canceled) heldWeapon.triggerHeld = false;
+
             heldWeapon.ShootWeapon();    // Shoot the weapon
         }
     }
