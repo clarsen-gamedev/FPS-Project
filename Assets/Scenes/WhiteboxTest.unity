@@ -3132,7 +3132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &370044066
 Transform:
   m_ObjectHideFlags: 0
@@ -7533,8 +7533,8 @@ MonoBehaviour:
     m_ActionName: Player/Camera[/Mouse/position]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 480460089}
-        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+      - m_Target: {fileID: 934877844}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Shoot
         m_Mode: 0
         m_Arguments:
@@ -7549,8 +7549,8 @@ MonoBehaviour:
     m_ActionName: Player/Shoot[/Mouse/leftButton,/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 480460089}
-        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+      - m_Target: {fileID: 934877844}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Reload
         m_Mode: 0
         m_Arguments:
@@ -8537,7 +8537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222318, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547611470150222319, guid: 9d265ba6d161a7644a4109d042bf02d6, type: 3}
       propertyPath: m_RootOrder
@@ -16130,7 +16130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1406252384363682055, guid: 0b952744d19c17f4f983213080479062, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b952744d19c17f4f983213080479062, type: 3}
