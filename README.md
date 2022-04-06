@@ -1,2 +1,2 @@
 # FPS-Project
-My current FPS game project
+My FPS game project. Currently put on hold.
